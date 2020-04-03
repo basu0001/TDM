@@ -1,0 +1,66 @@
+.action-choose-card {
+  max-width: 80%;
+  margin: 50px auto;
+}
+
+.action-choose-card-header {
+  justify-content: center;
+  text-align: center;
+}
+
+/* .action-grid-list {
+  background-color: #DEFFF9;
+} */
+
+mat-card-header {
+  justify-content: center;
+  text-align: center;
+  padding-top: 11px;
+  /* background-color: #A3EDF6; */
+  color: #004A70;
+  font-size: 30px;
+}
+
+mat-card-subtitle {
+  font-size: 18px;
+}
+
+
+.action-button {
+  /* padding: 50px 90px !important; */
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 80%;
+  font-size: 20px;
+  color: white;
+  background-color: #003D79;
+}
+
+.action-button:hover{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 80%;
+  font-size: 20px;
+  color: #004D8A;
+  background-color: #E1F1F6;
+}
+
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
+.material-icons.md-25 {
+  font-size: 25px;
+}
+
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+.material-icons.md-36 {
+  font-size: 36px;
+}
+
+.material-icons.md-48 {
+  font-size: 48px;
+}

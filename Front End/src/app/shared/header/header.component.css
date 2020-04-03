@@ -1,0 +1,39 @@
+.sidenav {
+  height: 100%;
+}
+
+.sidenav-bar {
+  width: 300px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.header {
+  background-color: #004A70;
+  color: white;
+}
+
+.example-sidenav {
+  padding: 20px;
+}
+
+.header-button {
+  margin: 4px;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.mat-menu-item {
+  color: black;
+}
+
+button.mat-menu-item{
+    background-color: white;
+}
+
+button.mat-menu-item:hover {
+    background-color: #D9E4EA;
+    color: #000000;
+}

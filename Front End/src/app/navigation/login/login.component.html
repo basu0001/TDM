@@ -1,0 +1,49 @@
+<div class="login">
+    <form class='mainlogin' #loginform="ngForm" (ngSubmit)="submit(loginform)">
+      <mat-card class="mat-elevation-z4">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <img mat-card-image src="./assets/img/CRISLogo.png" height="150px" width="50px" alt="CRIS">
+           
+        <mat-card-header>         
+         
+          <mat-card-title><strong> Centre for Railway Information Systems</strong></mat-card-title>
+          <mat-card-subtitle>Terminal Database Management</mat-card-subtitle>
+        </mat-card-header>
+       
+       
+        <mat-card-content class="card-content">
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Username</mat-label>
+              <input matInput required placeholder="username" name="username" [(ngModel)]="username">
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput required placeholder="Password" type="password" name="password" [(ngModel)]="password">
+            </mat-form-field>
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button type="submit" class="submitbtn" [disabled]="!loginform.form.valid"
+            (click)="onLoginClick(loginform)">Submit</button>
+          <button mat-raised-button type="submit" class="submitbtn" [disabled]="!loginform.form.valid"
+            (click)="onResetClick() " routerLink="/login">Reset</button>
+        </mat-card-actions>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      </mat-card>
+    </form>
+  </div>
+  
+  <img src="https://static.toiimg.com/photo/msid-66348255,width-96,height-65.cms" class="bg-img">

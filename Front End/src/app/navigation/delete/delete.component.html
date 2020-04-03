@@ -1,0 +1,143 @@
+<app-header></app-header>
+<div class="main-containter">
+    <form [formGroup]="DisplayFormGroup">
+        <mat-card class="mat-elevation-z5 terminal-details-card">
+            <mat-card-header>
+            <mat-card-title>
+                <strong>SELECT TERMINAL CODE</strong>
+             </mat-card-title>
+            </mat-card-header>
+          <mat-card-content>
+              <mat-form-field>
+                 
+                  <mat-select matInput placeholder="Terminals Code" formControlName="dispTerminal" name="terminal"
+                  (selectionChange)="selectedTerminal($event)">
+                    <mat-option *ngFor="let terminal of Terminals" [value]="terminal" appAutofocus>
+                      {{terminal.terminalCode}}
+                      
+                  </mat-option>
+                  </mat-select>
+                </mat-form-field>
+          </mat-card-content>
+        </mat-card>
+          <div *ngIf="chosenTerminal">
+        <mat-card class="mat-elevation-z5 terminal-details-card" >
+            <mat-card-header>
+                <mat-card-title>
+                   <strong>TERMINAL DETAILS</strong>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+
+                <table>
+                    <tr>
+                        <th>Terminal ID</th>
+                        <th>Terminal Code</th>
+                        <th>Terminal Location ID</th>
+                        <th>Terminal Server Type</th> 
+                        <th>IP Address</th>
+                        <th>Window Number</th>
+                        <th>Terminal Server Number</th>
+                        <th>Admin Number</th>
+                        <th>Commission Date</th>   
+                    </tr>
+                    <tr>
+                        <td>{{chosenTerminal.terminalId}}</td>
+                        <td>{{chosenTerminal.terminalCode}}</td>
+                        <td>{{chosenTerminal.locationId}}</td>
+                        <td>{{chosenTerminal.trmlSrvType}}</td>
+                        <td>{{chosenTerminal.terminalIp}}</td>
+                        <td>{{chosenTerminal.windowNumber}}</td>
+                        <td>{{chosenTerminal.trmlSrvNumber}}</td>
+                        <td>{{chosenTerminal.adminId}}</td>
+                        <td>{{chosenTerminal.commissionDate | date:'mediumDate'}}</td>
+                    </tr>
+                  </table>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="mat-elevation-z5 terminal-details-card">
+            <mat-card-header>
+                <mat-card-title>
+                   <strong>TERMINAL CHARACTERISTICS</strong>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+
+                <table>
+                    <tr>
+                        <th>Application ID</th>
+                        <th>Terminal Feature</th> 
+                        <th>Feature value</th>
+                        <th>Valid from</th> 
+                        <th>Valid upto</th>     
+                    </tr>
+                    <tr>
+                        <td>{{chosenTerminal.appId}}</td>
+                        <td>{{chosenTerminal.name}}</td>
+                        <td>{{chosenTerminal.value}}</td>
+                        <td>{{chosenTerminal.validFrom  | date:'mediumDate'}}</td>
+                        <td>{{chosenTerminal.validUpto  | date:'mediumDate'}}</td>
+                    </tr>
+                  </table>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="mat-elevation-z5 terminal-details-card">
+            <mat-card-header>
+                <mat-card-title>
+                   <strong>TERMINAL PARAMETER</strong>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+
+                <table>
+                    <tr>
+                        <th>Application ID</th>
+                        <th>Usage Frequency Type</th> 
+                        <th>Usage Frequency</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Start time</th>
+                        <th>End time</th>     
+                    </tr>
+                    <tr>
+                        <td>{{chosenTerminal.appId}}</td>
+                        <td>{{chosenTerminal.usageFrequencyType}}</td>
+                        <td>{{chosenTerminal.usageFrequencyValue}}</td>
+                        <td>{{chosenTerminal.startDate | date:'mediumDate'}}</td>
+                        <td>{{chosenTerminal.endDate | date:'mediumDate'}}</td>
+                        <td>{{chosenTerminal.startTime}}</td>
+                        <td>{{chosenTerminal.endTime}}</td>                    
+                    </tr>
+                  </table>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="mat-elevation-z5 terminal-details-card">
+            <mat-card-header>
+                <mat-card-title>
+                   <strong>POS DETAILS</strong>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+
+                <table>
+                    <tr>
+                      <th>Pos key</th>
+                      <th>Valid from</th> 
+                      <th>Valid upto</th>
+                            
+                    </tr>
+                    <tr>
+                      <td>{{chosenTerminal.posKey}}</td>
+                      <td>{{chosenTerminal.validFrom  | date:'mediumDate'}}</td>
+                      <td>{{chosenTerminal.validUpto  | date:'mediumDate'}}</td>
+                          
+                    </tr>
+                  </table>
+            </mat-card-content>
+        </mat-card>
+        <div class="formcontrols">
+        <button mat-raised-button class="deleteform" (click)="deleteTerminal()">Delete</button>
+    </div>
+      </div>
+    </form>
+</div> 

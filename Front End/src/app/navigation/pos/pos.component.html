@@ -1,0 +1,68 @@
+<app-header></app-header>
+<div class="main-containter">
+  <form class="create-form" [formGroup]="posCreateForm">
+    <mat-card class="mat-elevation-z10">
+      <mat-card-header>
+        <mat-card-title>
+          <strong>POS DATABASE MANAGEMENT</strong>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-grid-list class="action-grid-list" cols="3" rowHeight="85px">
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Merchant ID" formControlName="merchantId" value="">
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field>
+                <input matInput placeholder="POS Terminal ID" formControlName="posTrmlId" value="">
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field>
+                <input matInput placeholder="POS MAC ID" formControlName="posMacId" value="">
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field>
+                <!-- <mat-label>POS Make</mat-label> -->
+                <mat-select placeholder="POS OEM" formControlName="posMake">
+                  <mat-option *ngFor="let make of makes" [value]="make.value">
+                    {{make.viewValue}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="example-full-width">
+             <!-- <mat-label>POS Make</mat-label> -->
+             <mat-select placeholder="POS Bank" formControlName="posBankCode">
+                <mat-option *ngFor="let bank of banks" [value]="bank.value">
+                  {{bank.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Service Provider Code" formControlName="posServiceProvider">
+            </mat-form-field>
+          </mat-grid-tile>
+          <!-- <mat-grid-tile>
+              
+                  <ngx-timepicker-field formControlName="postime" [defaultTime]="'11:11 am'"></ngx-timepicker-field>
+                  {{ postime.value }}
+                  {{postime.type}}
+                
+          </mat-grid-tile> -->
+
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+    <div class="formcontrols">
+            <button mat-raised-button class="submitform"  routerLink="/home" (click)="createPos()" routerLink="/home">Submit</button>
+            <button mat-raised-button class="resetform" (click)="resetPos()">Reset</button>
+    </div>
+  </form>
+</div>

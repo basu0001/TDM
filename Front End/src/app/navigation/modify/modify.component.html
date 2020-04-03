@@ -1,0 +1,244 @@
+<app-header></app-header>
+<div class="main-containter">
+  <form class="create-form" [formGroup]="modifyForm">
+      <mat-card class="mat-elevation-z5 terminal-details-card">
+          <mat-card-header>
+          <mat-card-title>
+              <strong>SELECT TERMINAL CODE</strong>
+           </mat-card-title>
+          </mat-card-header>
+        <mat-card-content>
+            <mat-form-field>
+               
+                <mat-select matInput placeholder="Terminals Code" formControlName="dispTerminal" name="terminal"
+                (selectionChange)="selectedTerminal($event)">
+                  <mat-option *ngFor="let terminal of Terminals" [value]="terminal" appAutofocus>
+                    {{terminal.terminalCode}}
+                    
+                </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </mat-card-content>
+      </mat-card>
+        <div *ngIf="chosenTerminal">
+    <mat-card class="mat-elevation-z10">
+      <mat-card-header>
+        <mat-card-title>
+          <strong>TERMINAL DETAILS</strong>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-grid-list class="action-grid-list" cols="4" rowHeight="85px">
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Terminal Code" value="{{ chosenTerminal.terminalCode }}">
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field>
+              <mat-label>Server Type</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let server of servers" ngModel=[(selectedServer)] [value]="server.value">
+                  {{server.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field>
+              <mat-label>Terminal Location</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let loc of locs" [value]="loc.value">
+                  {{loc.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field>
+              <input matInput placeholder="IP Address">
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Window Number">
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Server Number">
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field>
+              <mat-label>Admin Number</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let admn of admns" [value]="admn.value">
+                  {{admn.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field>
+              <input matInput required [matDatepicker]="comdate" placeholder="Choose a date">
+              <mat-datepicker-toggle matSuffix [for]="comdate"></mat-datepicker-toggle>
+              <mat-datepicker #comdate></mat-datepicker>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="mat-elevation-z10">
+      <mat-card-header>
+        <mat-card-title>
+          <strong>TERMINAL CHARACTERISTICS</strong>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-grid-list class="action-grid-list" cols="5" rowHeight="85px">
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="example-full-width">
+              <mat-label>App ID</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let app of apps" [value]="app.value">
+                  {{app.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field>
+              <mat-label>Terminal Features</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let trml of trmls" [value]="trml.value">
+                  {{trml.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field>
+              <mat-label>Terminal Features</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let feature of features" [value]="feature.value">
+                  {{feature.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field>
+              <input matInput required [matDatepicker]="fromdate" placeholder="Choose a date">
+              <mat-datepicker-toggle matSuffix [for]="fromdate"></mat-datepicker-toggle>
+              <mat-datepicker #fromdate></mat-datepicker>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field>
+              <input matInput required [matDatepicker]="todate" placeholder="Choose a date">
+              <mat-datepicker-toggle matSuffix [for]="todate"></mat-datepicker-toggle>
+              <mat-datepicker #todate></mat-datepicker>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="mat-elevation-z10">
+      <mat-card-header>
+        <mat-card-title>
+          <strong>TERMINAL DETAILS</strong>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-grid-list class="action-grid-list" cols="5" rowHeight="85px">
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="example-full-width">
+              <mat-label>App ID</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let app of apps" [value]="app.value">
+                  {{app.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field>
+              <mat-label>Terminal Frequency</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let tfreq of tfreqs" [value]="tfreq.value">
+                  {{tfreq.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field>
+              <mat-label>Terminal Range</mat-label>
+              <mat-select multiple>
+                <mat-option *ngFor="let trange of tranges" [value]="trange.value">
+                  {{trange.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field>
+              <input matInput [matDatepicker]="t_timings_start" placeholder="START DATE">
+              <mat-datepicker-toggle matSuffix [for]="t_timings_start"></mat-datepicker-toggle>
+              <mat-datepicker #t_timings_start></mat-datepicker>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field>
+              <input matInput [matDatepicker]="t_timings_end" placeholder="END DATE">
+              <mat-datepicker-toggle matSuffix [for]="t_timings_end"></mat-datepicker-toggle>
+              <mat-datepicker #t_timings_end></mat-datepicker>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="mat-elevation-z10">
+      <mat-card-header>
+        <mat-card-title>
+          <strong>POS DETAILS</strong>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-grid-list class="action-grid-list" cols="3" rowHeight="85px">
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field>
+              <mat-label>POS Key</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let poskey of poskeys" [value]="poskey.value">
+                  {{poskey.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field>
+              <input matInput [matDatepicker]="pos_start" placeholder="START DATE">
+              <mat-datepicker-toggle matSuffix [for]="pos_start"></mat-datepicker-toggle>
+              <mat-datepicker #pos_start></mat-datepicker>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field>
+              <input matInput [matDatepicker]="pos_end" placeholder="END DATE">
+              <mat-datepicker-toggle matSuffix [for]="pos_end"></mat-datepicker-toggle>
+              <mat-datepicker #pos_end></mat-datepicker>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+    <div class="formcontrols">
+      <button mat-raised-button class="submitform" (click)="modifySubmit">Submit</button>
+      <button mat-raised-button class="resetform" (click)="resetForm()">Reset</button>
+</div>
+        </div>
+   
+  </form>
+</div>

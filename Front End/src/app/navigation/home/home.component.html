@@ -1,0 +1,49 @@
+<app-header></app-header>
+
+
+<div class="container">
+  <mat-card class="action-choose-card mat-elevation-z4">
+    <mat-card-header class="action-choose-card-header">
+      <mat-card-title>
+        <strong>TERMINAL DATABASE MANAGEMENT</strong>
+      </mat-card-title>
+      <mat-card-subtitle>
+        Choose an action
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-grid-list class="action-grid-list" cols="5" rowHeight="250px">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <button mat-raised-button class="action-button" routerLink="/create">
+            <i class="material-icons md-36">fiber_new</i><br>Create
+          </button>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <button mat-raised-button class="action-button" routerLink="/pos">
+            <i class="material-icons md-36">sim_card</i><br>POS Details
+          </button>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <button mat-raised-button class="action-button" routerLink="/modify">
+            <i class="material-icons md-36">build</i><br>Modify
+          </button>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <button mat-raised-button class="action-button" routerLink="/display">
+            <i class="material-icons md-36">desktop_mac</i><br>Display
+          </button>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <button mat-raised-button class="action-button" routerLink="/delete">
+            <i class="material-icons md-36">delete</i><br>Delete
+          </button>
+        </mat-grid-tile>
+        <!-- <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <button mat-raised-button class="action-button">
+            <i class="material-icons md-36">picture_as_pdf</i><br>Reports
+          </button>
+        </mat-grid-tile> -->
+      </mat-grid-list>
+    </mat-card-content>
+  </mat-card>
+</div>

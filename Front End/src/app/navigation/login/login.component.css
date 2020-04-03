@@ -1,0 +1,35 @@
+.login {
+  max-width: auto;
+  height: auto;
+  margin: auto;
+  /* margin-top: 15%; */
+  text-align: center;
+}
+
+.bg-img {
+  width: 75%;
+  float: right;
+}
+
+.cris-login-img {
+  background-image: url('https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Indian_Railway.svg/1200px-Indian_Railway.svg.png');
+  background-size: cover;
+  float: left;
+}
+
+:host {
+  display: flex;
+  min-height: 100vh;
+  text-align: center;
+  float: left;
+}
+
+.card-content {
+  text-align: center;
+}
+
+
+.submitbtn:hover {
+  background-color: #DFF0D0;
+  color: #262725;
+}
